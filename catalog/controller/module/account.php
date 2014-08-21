@@ -1,4 +1,4 @@
-<?php  
+<?php
 class ControllerModuleAccount extends Controller {
 	protected function index() {
 		$this->language->load('module/account');
@@ -15,8 +15,8 @@ class ControllerModuleAccount extends Controller {
 		$this->data['text_address'] = $this->language->get('text_address');
 		$this->data['text_download'] = $this->language->get('text_download');
 		$this->data['text_newsletter'] = $this->language->get('text_newsletter');
-		
-		$this->data['logged'] = $this->customer->isLogged();
+
+		$this->data['logged'] = $this->member->isLogged();
 		$this->data['register'] = $this->url->link('account/register', '', 'SSL');
 		$this->data['login'] = $this->url->link('account/login', '', 'SSL');
 		$this->data['logout'] = $this->url->link('account/logout', '', 'SSL');
@@ -27,7 +27,7 @@ class ControllerModuleAccount extends Controller {
 		$this->data['address'] = $this->url->link('account/address', '', 'SSL');
 		$this->data['download'] = $this->url->link('account/download', '', 'SSL');
 		$this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');
-		
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/account.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/module/account.tpl';
 		} else {
